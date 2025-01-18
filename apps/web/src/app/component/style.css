@@ -1,0 +1,13 @@
+.inputStyle {
+    width: 100vw;          /* Full width of the viewport */
+    height: 100vh;         /* Full height of the viewport */
+    border: none;          /* Remove the border */
+    font-size: 2rem;       /* Make the text large */
+    outline: none;         /* Remove the focus outline */
+    padding: 0;            /* Remove padding */
+    box-sizing: border-box;/* Include padding and border in element's total width and height */
+    text-align: left;      /* Align text to the left */
+    line-height: normal;   /* Ensure normal line height */
+    display: block;        /* Make input behave like a block element */
+    overflow: hidden;      /* Prevent any overflow issues */
+}
