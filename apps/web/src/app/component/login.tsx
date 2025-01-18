@@ -42,7 +42,7 @@ export function Login() {
 
   return (
     <div>
-      <h1>React Firebase App</h1>
+      <h1>Login Page</h1>
       <button onClick={handleLogin}>Login with Google</button>
       <button onClick={handleLogout}>Logout</button>
     </div>
