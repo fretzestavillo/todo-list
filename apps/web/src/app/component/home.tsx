@@ -6,11 +6,14 @@ import {
   doc,
   getDoc,
 } from 'firebase/firestore';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { firebaseConfig } from './config';
+import { getAuth, signOut } from 'firebase/auth';
 
 export function Home() {
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
   const db = getFirestore(app);
   const location = useLocation();
   const data = location.state;
@@ -20,6 +23,17 @@ export function Home() {
     displayName: data.fireBaseData.displayName,
     token: data.fireBaseData.token,
   };
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+      console.log('User signed out');
+      navigate('/');
+    } catch (error) {
+      console.error('Logout Error:', error);
+    }
+  }
 
   async function createData() {
     try {
@@ -48,8 +62,16 @@ export function Home() {
   return (
     <>
       <h1>Hi This is your home {fireBaseData.displayName}</h1>
-      <button onClick={createData}>create data</button>
-      <button onClick={getData}>get Data</button>
+      <div>
+        <button onClick={createData}>create data</button>
+      </div>
+      <div>
+        <button onClick={getData}>get Data</button>
+      </div>
+
+      <div>
+        <button onClick={handleLogout}>LogoutfromHome</button>
+      </div>
     </>
   );
 }
