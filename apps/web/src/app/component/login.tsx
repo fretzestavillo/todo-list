@@ -33,8 +33,11 @@ export function Login() {
 
   return (
     <div>
-      <h1>Login Page</h1>
-      <button onClick={handleLogin}>Login with Google</button>
+      <div className="container">
+        <button className="login" onClick={handleLogin}>
+          Continue with Google
+        </button>
+      </div>
     </div>
   );
 }

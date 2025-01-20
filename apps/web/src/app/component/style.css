@@ -16,3 +16,40 @@
     color: #EEEEEE;        /* Light gray text */
     font-family: Arial, sans-serif;
 }
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #4285f4; /* Google Blue */
+    border: 2px solid #4285f4; /* Blue border */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 300px; /* You can adjust the width */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .login:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+  }
+  
+  .login img {
+    margin-right: 10px;
+  }
+  
+  .login:focus {
+    outline: none;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
