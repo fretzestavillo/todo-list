@@ -1,49 +1,43 @@
 import { useEffect, useRef, useState } from 'react';
 import '../component/style.css';
+import { doc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './config';
 
 export function EditableText() {
-  const demoRef = useRef<HTMLParagraphElement | null>(null);
-  const pratice = useRef<HTMLTextAreaElement | null>(null);
-  const [lastKey, setLastKey] = useState<string>('');
-  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const [fbdata, setfbdata] = useState<string[]>([]);
 
   useEffect(() => {
-    if (lastKey) {
-      if (timer) {
-        clearTimeout(timer);
+    const docRef = doc(db, 'todoList', 'todo1');
+
+    const unsubscribe = onSnapshot(docRef, (firebasedata) => {
+      if (firebasedata.exists()) {
+        setfbdata(firebasedata.data().list);
+      } else {
+        console.log('No such document!');
       }
-
-      const newTimer = setTimeout(() => {
-        delayedFunction();
-      }, 5000);
-
-      setTimer(newTimer);
-    }
+    });
 
     return () => {
-      if (timer) {
-        clearTimeout(timer);
-      }
+      unsubscribe();
     };
-  }, [lastKey]);
+  }, []);
 
-  function lastKeyfunction(event: React.KeyboardEvent<HTMLTextAreaElement>) {
-    setLastKey(event.key);
-  }
-
-  function delayedFunction() {
-    console.log(`Function called after 3 seconds: Last key was "${lastKey}"`);
-  }
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const updatedData = event.target.value.split('\n'); // Split lines by new line
+    setfbdata(updatedData);
+  };
 
   return (
     <>
       <div>
-        <h1 ref={demoRef}>Title</h1>
         <textarea
+          onChange={handleChange} // Track changes
+          value={fbdata.join('\n')}
           className="inputStyle"
-          ref={pratice}
-          onKeyDown={lastKeyfunction}
-        />
+        />{' '}
       </div>
     </>
   );
