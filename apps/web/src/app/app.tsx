@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from './component/login';
 import { Home } from './component/home';
-import { EditableText } from './component/editable';
 
 function App() {
   return (
@@ -10,7 +9,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/EditableText" element={<EditableText />} />
         </Routes>
       </BrowserRouter>
     </>

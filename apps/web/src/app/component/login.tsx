@@ -31,20 +31,10 @@ export function Login() {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      console.log('User signed out');
-    } catch (error) {
-      console.error('Logout Error:', error);
-    }
-  };
-
   return (
     <div>
       <h1>Login Page</h1>
       <button onClick={handleLogin}>Login with Google</button>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
