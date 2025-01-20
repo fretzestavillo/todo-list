@@ -2,12 +2,17 @@
     width: 100vw;          /* Full width of the viewport */
     height: 100vh;         /* Full height of the viewport */
     border: none;          /* Remove the border */
-    font-size: 1.5rem;       /* Make the text large */
+    font-size: 1.5rem;     /* Make the text large */
     outline: none;         /* Remove the focus outline */
     padding: 0;            /* Remove padding */
+    padding-left: 20px;    /* Add space on the left side */
+    padding-top: 20px;     /* Add space on the top */
     box-sizing: border-box;/* Include padding and border in element's total width and height */
     text-align: left;      /* Align text to the left */
     line-height: normal;   /* Ensure normal line height */
     display: block;        /* Make input behave like a block element */
     overflow: hidden;      /* Prevent any overflow issues */
+    background-color: #333333; /* Dark background */
+    color: #EEEEEE;        /* Light gray text */
+    font-family: Arial, sans-serif;
 }
