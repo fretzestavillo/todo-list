@@ -12,10 +12,11 @@ export function Home() {
 
   useEffect(() => {
     const docRef = doc(db, 'todoList', 'todo1');
+    const fck = 0;
 
     const unsubscribe = onSnapshot(docRef, (firebasedata) => {
       if (firebasedata.exists()) {
-        setfbdata(firebasedata.data().list);
+        setfbdata(firebasedata.data().fck);
       } else {
         console.log('No such document!');
       }
@@ -43,7 +44,7 @@ export function Home() {
     try {
       const docRef = doc(db, 'todoList', 'todo1');
       await updateDoc(docRef, {
-        list: data,
+        fck: data,
       });
       console.log('Data saved to Firestore');
     } catch (error) {
