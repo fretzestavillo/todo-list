@@ -35,7 +35,8 @@
   }
   
   .login:hover {
-    background-color: #f1f1f1; /* Light gray background on hover */
+    /* background-color: #f1f1f1;  */
+    background-color: red; /* Light gray background on hover */
   }
   
   .login img {
