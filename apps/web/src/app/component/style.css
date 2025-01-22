@@ -12,7 +12,8 @@
     line-height: normal;   /* Ensure normal line height */
     display: block;        /* Make input behave like a block element */
     overflow: hidden;      /* Prevent any overflow issues */
-    background-color: #333333; /* Dark background */
+    /* background-color: #333333;  */
+    background-color: red; /* Dark background */
     color: #EEEEEE;        /* Light gray text */
     font-family: Arial, sans-serif;
 }
@@ -35,8 +36,7 @@
   }
   
   .login:hover {
-    /* background-color: #f1f1f1;  */
-    background-color: red; /* Light gray background on hover */
+    background-color: #f1f1f1; /* Light gray background on hover */
   }
   
   .login img {
