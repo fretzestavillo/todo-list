@@ -44,7 +44,7 @@ export function Home() {
     try {
       const docRef = doc(db, 'todoList', 'todo1');
       await updateDoc(docRef, {
-        fck: data,
+        list: data,
       });
       console.log('Data saved to Firestore');
     } catch (error) {
