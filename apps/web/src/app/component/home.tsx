@@ -4,11 +4,6 @@ import { doc, getFirestore, onSnapshot, updateDoc } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './config';
 
-console.log(
-  'VITE_FIREBASE_PROJECT_ID:',
-  import.meta.env.VITE_FIREBASE_PROJECT_ID
-);
-
 export function Home() {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
