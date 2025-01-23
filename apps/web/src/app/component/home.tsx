@@ -17,8 +17,6 @@ export function Home() {
       if (firebasedata.exists()) {
         setfbdata(firebasedata.data().list);
         // console.log(firebasedata.data()['0']);
-
-        console.log(firebasedata.data());
       } else {
         console.log('No such document!');
       }
@@ -31,7 +29,7 @@ export function Home() {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const updatedData = event.target.value.split('\n');
-    // setfbdata(updatedData);
+    setfbdata(updatedData);
 
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
